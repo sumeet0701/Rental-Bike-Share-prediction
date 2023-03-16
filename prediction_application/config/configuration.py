@@ -1,12 +1,12 @@
 from prediction_application.entity.config_entity import DataIngestionConfig
-from prediction_application.entity.config_entity import DataTransformationsConfig
+from prediction_application.entity.config_entity import DataTransformationConfig
 from prediction_application.entity.config_entity import DataValidationConfig
 from prediction_application.entity.config_entity import DatabaseConfig
 from prediction_application.entity.config_entity import ModelTrainerConfig
 from prediction_application.entity.config_entity import TrainingPipelineConfig
 from prediction_application.constant import *
-from prediction_application.util.util import read_yaml_file
-from prediction_application.exceptions import ApplicationException
+from prediction_application.utils.utils import read_yaml_file
+from prediction_application.exception import ApplicationException
 from prediction_application.logger import logging
 import os,sys
 
