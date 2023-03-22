@@ -14,10 +14,10 @@ def read_yaml_file(file_path:str)-> dict:
     -------------------
     filename (str): path to the yaml file
     """
-        try:
+    try:
             with open(file_path, 'rb') as stream:
                 return yaml.safe_load(stream)
-        except Exception as e:
+    except Exception as e:
             raise ApplicationException(e,sys) from e
 
 def save_object(file_path:str, obj):
