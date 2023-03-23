@@ -13,7 +13,7 @@ import json
 from evidently.model_profile import Profile
 from evidently.model_profile.sections import DataDriftProfileSection
 from evidently.dashboard import Dashboard
-from evidently.dashboard.tabs import DataDriftTabx 
+from evidently.dashboard.tabs import DataDriftTab
 
 class DataValidation:
     def __init__(self,path, data_validation_config : DataValidationConfig):

@@ -1,4 +1,3 @@
-from ast import expr_content
 from operator import index
 from prediction_application.logger import logging
 from prediction_application.exception import ApplicationException
