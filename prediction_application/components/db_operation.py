@@ -9,7 +9,7 @@ from prediction_application.logger import logging
 class MongoDB:
     def __init__(self):
         try:
-            self.client = pymongo.MongoClient(DATABASE_CLIENT_URL_KEY,tls=True,tlsAllowInvalidCertificates=True)
+            self.client = pymongo.MongoClient(DATABASE_CLIENT_URL_KEY)
 
             logging.info("Connection with DB created successfully!!!")                                
             self.db= self.client[DATABASE_NAME_KEY]

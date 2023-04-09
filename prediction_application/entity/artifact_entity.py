@@ -1,6 +1,5 @@
 from collections import namedtuple
 
-
 DataIngestionArtifact = namedtuple("DataIngestionArtifact",["train_file_path",
                                                             "test_file_path",
                                                             "is_ingested",
@@ -22,4 +21,3 @@ DataTransformationArtifact = namedtuple("DataTransformationArtifact",["is_transf
 ModelTrainerArtifact = namedtuple("ModelTrainerArtifact",["is_trained",
                                                         "message",
                                                         "trained_model_object_file_path"])
-

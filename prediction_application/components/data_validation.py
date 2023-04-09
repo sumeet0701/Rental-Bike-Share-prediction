@@ -1,31 +1,29 @@
 from prediction_application.logger import logging
 from prediction_application.exception import ApplicationException
-from prediction_application.entity.artifact_entity import DataValidationArtifact, DataIngestionArtifact
-from prediction_application.entity.config_entity import DataValidationConfig, DataIngestionConfig
+from prediction_application.entity.config_entity import DataValidationConfig
+from prediction_application.entity.config_entity import DataIngestionConfig
+from prediction_application.entity.artifact_entity import DataValidationArtifact
+from prediction_application.entity.artifact_entity import DataIngestionArtifact
 from prediction_application.utils.utils import read_yaml_file
-
 import os,sys
 import pandas as pd
-import numpy as np
 import re
 import json
-
 from evidently.model_profile import Profile
 from evidently.model_profile.sections import DataDriftProfileSection
 from evidently.dashboard import Dashboard
 from evidently.dashboard.tabs import DataDriftTab
 
-class DataValidation:
+class Prediction_Validation:
     def __init__(self,path, data_validation_config : DataValidationConfig):
         try:
-            self.path = path
+            self.path=path
             self.data_validation_config = data_validation_config
-            self.schmea_file_path = self.data_validation_config.schema_file_path
-            self.dataset_schema = read_yaml_file(file_path = self.schema_file_path)
-
+            self.schema_file_path = self.data_validation_config.schema_file_path
+            self.dataset_schema = read_yaml_file(file_path=self.schema_file_path)
         except Exception as e:
             raise ApplicationException(e,sys) from e
-    
+
     def file_name_check(self,file):
         try:
             file_check_status = False

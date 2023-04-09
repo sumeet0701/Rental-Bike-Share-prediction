@@ -57,7 +57,7 @@ class Configuration:
         try:
             artifact_dir = self.training_pipeline_config.artifact_dir
 
-            data_validation_artifact_dir = os.path.join(artifact_dir, DATA_VALIDATION_ARTIFACTS_KEY,self.time_stamp)
+            data_validation_artifact_dir = os.path.join(artifact_dir, DATA_VALIDATION_ARTIFACT_DIR_NAME,self.time_stamp)
 
             data_validation_config = self.config_info[DATA_VALIDATION_CONFIG_KEY]
 
@@ -83,7 +83,7 @@ class Configuration:
         try:
             artifact_dir = self.training_pipeline_config.artifact_dir
             data_transformation_artifact_dir = os.path.join(artifact_dir, 
-                                                            DATA_TRANSFORMATION_ARTIFACTS_KEY, 
+                                                            DATA_TRANSFORMATION_ARTIFACT_DIR, 
                                                             self.time_stamp)
 
             data_transformation_config = self.config_info[DATA_TRANSFORMATION_CONFIG_KEY]
@@ -140,7 +140,7 @@ class Configuration:
             training_pipeline_config = self.config_info[TRAINING_PIPELINE_CONFIG_KEY]
             artifact_dir = os.path.join(ROOT_DIR, 
                                         training_pipeline_config[TRAINING_PIPELINE_NAME_KEY],
-                                        training_pipeline_config[TRAINING_PIPELINE_ARTIFACTS_DIR_KEY])
+                                        training_pipeline_config[TRAINING_PIPELINE_ARTIFACT_DIR_KEY])
             training_pipeline_config = TrainingPipelineConfig(artifact_dir=artifact_dir)
             logging.info(f"Training Pipeline Config: {training_pipeline_config}")
             return training_pipeline_config
