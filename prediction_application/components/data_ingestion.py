@@ -1,10 +1,10 @@
 from ast import expr_context
 from operator import index
-from prediction_application.logger import logging
-from prediction_application.exception import ApplicationException
-from prediction_application.entity.config_entity import DataIngestionConfig
-from prediction_application.entity.artifact_entity import DataIngestionArtifact
-from prediction_application.components.db_operation import MongoDB
+from Prediction_Application.logger import logging
+from Prediction_Application.exception import ApplicationException
+from Prediction_Application.entity.config_entity import DataIngestionConfig
+from Prediction_Application.entity.artifact_entity import DataIngestionArtifact
+from Prediction_Application.components.dbOperation import MongoDB
 import pandas as pd
 import numpy as np
 import os,sys
@@ -143,3 +143,4 @@ class DataIngestion:
     
     def __del__(self):
         logging.info(f"\n{'*'*20} Data Ingestion log completed {'*'*20}\n")
+

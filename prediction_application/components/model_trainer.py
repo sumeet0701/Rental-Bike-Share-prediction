@@ -1,10 +1,9 @@
-from prediction_application.logger import logging
-from prediction_application.exception import ApplicationException
-from prediction_application.entity.config_entity import ModelTrainerConfig
-from prediction_application.entity.artifact_entity import DataTransformationArtifact
-from prediction_application.entity.artifact_entity import ModelTrainerArtifact
-from prediction_application.utils.utils import save_object
-from prediction_application.constant import *
+from Prediction_Application.logger import logging
+from Prediction_Application.exception import ApplicationException
+from Prediction_Application.entity.config_entity import ModelTrainerConfig
+from Prediction_Application.entity.artifact_entity import DataTransformationArtifact, ModelTrainerArtifact
+from Prediction_Application.util.util import save_object
+from Prediction_Application.constant import *
 import pandas as pd
 import numpy as np
 import os,sys

@@ -1,58 +1,64 @@
 from tkinter import E
-from prediction_application.components.data_validation import prediction_validation
-from prediction_application.logger import logging
-from prediction_application.utils.utils import load_object,read_yaml_file,save_data
-from prediction_application.exception import ApplicationException
-from prediction_application.constant import *
-from prediction_application.config.configuration import Configuration
-import os
-import sys
-import shutil
+from Prediction_Application.components.data_validation import Prediction_Validation
+from Prediction_Application.config.configuration import Configuration
+from Prediction_Application.logger import logging
+from Prediction_Application.exception import ApplicationException
+from Prediction_Application.logger import logging
+from Prediction_Application.constant import *
+from Prediction_Application.util.util import load_object, read_yaml_file, save_data
+import os,sys, shutil
 import pandas as pd
 import numpy as np
 
-
 class Prediction:
 
-    def __init__(self,
-                 config:Configuration = Configuration())
+    def __init__(self,config:Configuration = Configuration()):
         """
         Prediction Class : It helps in predicting from saved trained model.
                            It has two modes Bulk Prediction and Single Prediction
+
+            created by:
+                    Shivansh Kaushal and Chirag Sharma
         """
+
+
         logging.info(f"\n{'*'*20} Prediction Pipeline Initiated {'*'*20}\n")
-        # getting data validation config info 
+
+        # Getting data validation config info
         self.data_validation_config = config.get_data_validation_config()
 
-        # loading features Engineering, preprocessing and Model pickle object for prediction
+        # Loading Feature Engineering, Preprocessing and Model pickle objects for prediction
         self.fe_obj = load_object(file_path=os.path.join(ROOT_DIR,PIKLE_FOLDER_NAME_KEY,"feat_eng.pkl"))
         self.preprocessing_obj = load_object(file_path=os.path.join(ROOT_DIR,PIKLE_FOLDER_NAME_KEY,"preprocessed.pkl"))
         self.model_obj = load_object(file_path=os.path.join(ROOT_DIR,PIKLE_FOLDER_NAME_KEY,"model.pkl"))
 
-        # read schmea.ymal file to validate prediction data 
+        # Reading schema.yaml file to validate prediction data
         self.schema_file_path = self.data_validation_config.schema_file_path
         self.dataset_schema = read_yaml_file(file_path=self.schema_file_path)
 
-
     def initiate_bulk_prediction(self):
+        """
+        Function to predict from saved trained model for entire dataset. It returns the original dataset \n
+        with prediction column
+        """
         try:
             logging.info(f"{'*'*20}Bulk Prediction Mode Selected {'*'*20}")
-            # getting location of uploaded dataset
+            # Getting location of uploaded dataset
             self.folder = PREDICTION_DATA_SAVING_FOLDER_KEY
             self.path = os.path.join(self.folder,os.listdir(self.folder)[0])
-
-            # validating upload dataset
+            
+            # Validating uploaded dataset
             logging.info(f"Validatiog Passed Dataset : [{self.path}]")
-            pred_val = prediction_validation(self.path, self.data_validation_config)
+            pred_val = Prediction_Validation(self.path,self.data_validation_config)
             data_validation_status = pred_val.validate_dataset_schema()
 
             logging.info(f"Prediction for dataset: [{self.path}]")
 
             if data_validation_status:
-                # reading upload dataset .csv file in pandas 
+                # Reading uploaded .CSV file in pandas
                 data_df = pd.read_csv(self.path)
                 data_df['total_count'] = 0
-                cols =['date','year','month','hour','season','weekday','is_holiday','working_day','total_count',
+                col = ['date','year','month','hour','season','weekday','is_holiday','working_day','total_count',
                     'temp','wind','humidity','weather_sit','is_covid']
                 
                 logging.info("Feature Engineering applied !!!")
@@ -96,9 +102,9 @@ class Prediction:
                 
                 logging.info(f"{'*'*20} Bulk Prediction Coomplete {'*'*20}")
                 return zipped_file+".zip"
+
         except Exception as e:
             raise ApplicationException(e,sys) from e 
-
 
     def initiate_single_prediction(self,data:dict)->int:
         """
@@ -126,3 +132,4 @@ class Prediction:
             return round(prediction[0])
         except Exception as e:
             raise ApplicationException(e,sys) from e
+

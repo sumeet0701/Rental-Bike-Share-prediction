@@ -1,4 +1,4 @@
-from prediction_application.pipeline.training_pipeline import Training_Pipeline
+from Prediction_Application.pipeline.training_pipeline import Training_Pipeline
 
 
 def main():

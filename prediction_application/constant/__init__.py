@@ -50,7 +50,7 @@ TARGET_COLUMN_KEY = "target_column"
 PIKLE_FOLDER_NAME_KEY = "prediction_files"
 
 # Database related variables
-DATABASE_CLIENT_URL_KEY = "mongodb+srv://Sam:qQFY93RaCLpPqtSK@cluster0.elxaij6.mongodb.net/?retryWrites=true&w=majority"
+DATABASE_CLIENT_URL_KEY = "mongodb://localhost:27017/?readPreference=primary&ssl=false&directConnection=true"
 DATABASE_NAME_KEY = "Rental_Bike_Share_DB"
 DATABASE_COLLECTION_NAME_KEY = "Bike_Data"
 DATABASE_TRAINING_COLLECTION_NAME_KEY = "Training"
@@ -65,3 +65,10 @@ MODEL_TRAINER_TRAINED_MODEL_FILE_NAME_KEY = "model_file_name"
 # Prediction Related variables
 PREDICTION_DATA_SAVING_FOLDER_KEY = "Prediction_Batch_Files"
 APP_SECRET_KEY = "any random string"
+
+
+
+
+
+
+

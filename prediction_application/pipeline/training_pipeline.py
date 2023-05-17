@@ -1,12 +1,13 @@
-from prediction_application.components.model_trainer import ModelTrainer
-from prediction_application.logger import logging
-from prediction_application.exception import ApplicationException
-from prediction_application.components.data_ingestion import DataIngestion
-from prediction_application.components.data_validation import DataValidation
-from prediction_application.components.data_transformation import DataTransformation
-from prediction_application.config.configuration import Configuration
-from prediction_application.entity.config_entity import DataIngestionConfig
-from prediction_application.entity.artifact_entity import DataIngestionArtifact,DataTransformationArtifact,DataValidationArtifact, ModelTrainerArtifact
+
+from Prediction_Application.components.model_trainer import ModelTrainer
+from Prediction_Application.logger import logging
+from Prediction_Application.exception import ApplicationException
+from Prediction_Application.components.data_ingestion import DataIngestion
+from Prediction_Application.components.data_validation import DataValidation
+from Prediction_Application.components.data_transformation import DataTransformation
+from Prediction_Application.config.configuration import Configuration
+from Prediction_Application.entity.config_entity import DataIngestionConfig
+from Prediction_Application.entity.artifact_entity import DataIngestionArtifact,DataTransformationArtifact,DataValidationArtifact, ModelTrainerArtifact
 import os,sys
 
 
