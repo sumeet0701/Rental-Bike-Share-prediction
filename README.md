@@ -22,6 +22,47 @@ Weather Data was collected from link: http://www.freemeteo.com
 
 We have derived the final dataset for model training from above two datasets.
 
+## Installation
+
+Install my-project with npm
+
+### Step 1 - Clone the repository
+```bash
+git clone https://github.com/sumeet0701/shipment-cost-prediction.git
+```
+
+### Step 2 - Create a conda environment after opening the repository
+
+```bash
+conda create -n env_name python
+```
+
+```bash
+conda activate env_name
+```
+
+### Step 3 - Install the requirements
+```bash
+pip3 install -r requirements.txt
+```
+
+
+### Step 4 - Train Model
+```bash
+python demo.py
+
+```
+
+### Step g - Run the Prediction application server [Using Flask API]
+```bash
+python main.py
+```
+
+### Step 7 - Prediction application [Using Flask API]
+```bash
+http://localhost:5000
+
+```
 
 ## Project Details
 There are six packages in the pipeline: Config, Entity, Constant, Exception, Logger, Components and Pipeline
@@ -83,6 +124,32 @@ This package contains two modules:
 1. Training Pipeline: This module will initiate the training pipeline where each of the above mentioned components  
                       will be called sequentially untill model is saved.
 2. Prediction Pipeline: This module will help getting prediction from saved trained model.
+
+
+## Project Archietecture
+
+![Customer Personality Analysis (1)](https://github.com/sumeet0701/shipment-cost-prediction/assets/63961794/96191954-0dd7-4d87-b233-b8f5acaef742)
+
+## Development Archietecture
+![deploment](https://github.com/sumeet0701/shipment-cost-prediction/assets/63961794/cc656631-3588-468d-9dc9-17d0bcd11843)
+
+ 
+
+
+
+## 🔗 Links
+[![Github](https://img.shields.io/badge/GitHub-000?style=for-the-badge&logo=ko-fi&logoColor=white)](https://github.com/sumeet0701/)
+
+[![linkedin](https://img.shields.io/badge/linkedin-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/sumeet-maheshwari/)
+
+
+
+
+
+## Authors
+
+- [@Maheshwari Sumeet](https://github.com/sumeet0701)
+
 
 
 
